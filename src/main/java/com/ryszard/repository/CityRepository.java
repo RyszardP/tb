@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 @Transactional
 public interface CityRepository extends JpaRepository<City,Integer> {
 
-  City findByCityName(String name);
+  City findByName(String name);
 
 
 }

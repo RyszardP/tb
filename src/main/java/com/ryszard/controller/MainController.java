@@ -5,6 +5,7 @@ import com.ryszard.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,6 +25,7 @@ public class MainController {
         List<City> cities = cityRepository.findAll();
         return cities;
     }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST,  produces = {MediaType.APPLICATION_JSON_VALUE} )
     @ResponseBody
     City addCity(@Valid @RequestBody City city){

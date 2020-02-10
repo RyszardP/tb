@@ -3,7 +3,7 @@ package com.ryszard.bot;
 import java.sql.*;
 
 public class Connect {
-    private static final String url = "jdbc:mysql://localhost:3306/travel_db?serverTimezone=UTC";
+    private static final String url = "jdbc:mysql://localhost:3306/city_db?serverTimezone=UTC";
     private static final String user = "root";
     private static final String password = "root";
 
@@ -14,7 +14,7 @@ public class Connect {
 
 
     public static String getDataFromDb(String city){
-        String query = "select tc.city_description from travel_cities tc where tc.city_name =?";
+        String query = "select tc.description from cities tc where tc.name =?";
 
         try {
 
@@ -32,7 +32,7 @@ public class Connect {
             sqlEx.printStackTrace();
         }finally {
             try { connection.close(); } catch(SQLException se) {
-                System.out.println("con close successful");
+                System.out.println("connect close successful");
             }
             try { preparedStatement.close(); } catch(SQLException se) {
                 System.out.println("prepare statement close successful"); }
